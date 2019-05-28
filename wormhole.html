@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+        <title>Wormhole</title>
+    </head>
+    <body>
+        <a-scene>
+            <!-- Set the sky -->
+            <a-sky color="#ccfff2"></a-sky>
+           <!-- Worm -->
+           <a-cylinder radius=".5" height="3" rotation="0 0 90"
+                color="pink" position="-15 1.5 0">
+                <a-animation
+                    attribute="position"
+                    from="-15 1.5 0"
+                    to="2 1 -10"
+                    repeat="indefinitely"
+                    dur="4000"
+                ></a-animation>
+                    
+            </a-cylinder>
+           
+           
+           <!-- Wormhole -->
+           <a-sphere color="gold" radius="3" position="2 1 -10">
+                <a-animation
+                    attribute="color"
+                    from="gold"
+                    to="black"
+                    repeat="indefinitely"
+                    dur="4000"
+                ></a-animation>
+                   
+           </a-sphere>
+        </a-scene>
+    </body>
+</html>

@@ -1,0 +1,168 @@
+<html>
+<head>
+<title>Maze</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://static.codehs.com/gulp/ec071a764d83f34910ba21fab0b0f0cc20293542/chs-js-lib/chs.js"></script>
+
+
+<style>
+canvas {
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: top;
+}
+
+pre {
+    border: 1px solid black;
+    display: inline-block;
+    width: 400px;
+    height: 500px;
+    background-color: #F5F5F5;
+}
+</style>
+
+</head>
+
+<body>
+<h1>Maze</h1>
+
+
+
+<canvas
+width="400"
+height="500"
+class="codehs-editor-canvas"></canvas>
+<pre id="console"></pre>
+
+<script>
+window.onload = function() {
+
+    function start() {
+    drawMaze();
+    drawPacman(Color.yellow, 150,95);
+    drawGhost(50,130, Color.red);
+    drawGhost(275,25, Color.cyan);
+    drawGhost(275,300, Color.green);
+    drawGhost(275,430, Color.orange);
+
+}
+
+function drawGhost(centerX, centerY, color){
+    var rect = new Rectangle (30,35);
+    rect.setPosition (centerX, centerY);
+    rect.setColor(color);
+    add (rect);
+    
+    var circle = new Circle (15);
+    circle.setPosition (centerX +15, centerY);
+    circle.setColor(color);
+    add (circle);
+    
+    var circle2 = new Circle (5);
+    circle2.setPosition(centerX +5, centerY +35);
+    circle2.setColor(color);
+    add (circle2);
+    
+    var circle3 = new Circle (5);
+    circle3.setPosition(centerX+15, centerY+35);
+    circle3.setColor(color);
+    add (circle3);
+    
+    var circle4 = new Circle (5);
+    circle4.setPosition(centerX+25, centerY+35);
+    circle4.setColor(color);
+    add (circle4);
+    
+    var circle5 = new Circle(5);
+    circle5.setPosition(centerX+22, centerY);
+    circle5.setColor(Color.white);
+    add (circle5);
+    
+    var circle6 = new Circle(5);
+    circle6.setPosition(centerX+7 , centerY);
+    circle6.setColor(Color.white);
+    add (circle6);
+    
+    var circle7 = new Circle(2.5);
+    circle7.setPosition(centerX+24, centerY);
+    circle7.setColor(Color.blue);
+    add(circle7);
+    
+    var circle8 = new Circle(2.5);
+    circle8.setPosition(centerX+9, centerY);
+    circle8.setColor(Color.blue);
+    add(circle8);
+    
+    }
+    
+    function drawPacman(color,x,y){
+    var body= new Arc (25, 30, 340, 0);
+    body.setColor(color);
+    body.setPosition(x+50,y+50);
+    add(body);
+    
+    var eye = new Circle(5);
+    eye.setColor(Color.black);
+    eye.setPosition(x+55, y+35);
+    add(eye);
+}
+
+function drawMaze (color){
+    var rec = new Rectangle(getWidth(), getHeight());
+    rec.setPosition(0,0);
+    rec.setColor(Color.black);
+    add(rec);
+   
+    var l = new Line (1,100,250,100);
+    l.setColor(Color.green);
+    l.setLineWidth(10);
+    add(l);
+    
+    var l = new Line (250,100,250,1);
+    l.setColor(Color.green);
+    l.setLineWidth(10);
+    add(l);
+    
+    var l = new Line (1,180,250,180);
+    l.setColor(Color.green);
+    l.setLineWidth(10);
+    add(l);
+    
+    var l = new Line (325,300,325,1);
+    l.setColor(Color.green);
+    l.setLineWidth(10);
+    add(l);
+    
+    var l = new Line (250,500,250,175);
+    l.setColor(Color.green);
+    l.setLineWidth(10);
+    add(l);
+    
+    var l = new Line (400,300,325,300);
+    l.setColor(Color.green);
+    l.setLineWidth(10);
+    add(l);
+    
+    var l = new Line (400,375,325,375);
+    l.setColor(Color.green);
+    l.setLineWidth(10);
+    add(l);
+    
+    var l = new Line (325,375,325,480);
+    l.setColor(Color.green);
+    l.setLineWidth(10);
+    add(l);
+    
+}
+
+
+    if (typeof start === 'function') {
+        start();
+    }
+};
+</script>
+
+</body>
+</html>
